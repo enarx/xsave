@@ -1,0 +1,25 @@
+[package]
+name = "xsave"
+version = "0.1.0"
+authors = ["Nathaniel McCallum <npmccallum@redhat.com>"]
+edition = "2018"
+license = "Apache-2.0"
+homepage = "https://github.com/enarx/xsave"
+repository = "https://github.com/enarx/xsave"
+description = "An implementation of x86 XSave semantics"
+readme = "README.md"
+exclude = [ ".gitignore", ".github/*" ]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[badges]
+# See https://doc.rust-lang.org/cargo/reference/manifest.html#the-badges-section
+github = { repository = "enarx/xsave", workflow = "test" }
+#github = { repository = "enarx/xsave", workflow = "lint" }
+maintenance = { status = "actively-developed" }
+is-it-maintained-issue-resolution = { repository = "enarx/xsave" }
+is-it-maintained-open-issues = { repository = "enarx/xsave" }
+
+[dependencies]
+const-default = { version = "0.1", features = ["derive"] }
+bitflags = "1.2"
