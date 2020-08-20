@@ -24,8 +24,8 @@
 //! xsave.load();
 //! ```
 
+#![cfg_attr(feature = "asm", feature(asm))]
 #![deny(clippy::all)]
-#![feature(asm)]
 #![no_std]
 
 use bitflags::bitflags;
@@ -257,6 +257,7 @@ impl ConstDefault for XSave {
 impl XSave {
     /// Save the extended CPU state
     #[inline(never)]
+    #[cfg(feature = "asm")]
     pub extern "C" fn save(&mut self) {
         unsafe {
             asm!(
@@ -273,6 +274,7 @@ impl XSave {
 
     /// Load the extended CPU state
     #[inline(never)]
+    #[cfg(feature = "asm")]
     pub extern "C" fn load(&self) {
         unsafe {
             asm!(
@@ -314,6 +316,7 @@ mod tests {
     }
 
     #[test]
+    #[cfg(feature = "asm")]
     #[cfg(target_feature = "sse")]
     fn asm() {
         let mut xsave = XSave::default();
