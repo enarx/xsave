@@ -21,7 +21,7 @@ is-it-maintained-issue-resolution = { repository = "enarx/xsave" }
 is-it-maintained-open-issues = { repository = "enarx/xsave" }
 
 [dependencies]
-const-default = { version = "0.1", features = ["derive"] }
+const-default = { version = "0.2", features = ["derive"] }
 bitflags = "1.2"
 
 [features]
