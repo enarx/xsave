@@ -86,6 +86,7 @@ impl ConstDefault for Fcw {
 }
 
 impl Default for Fcw {
+    #[inline]
     fn default() -> Self {
         Self::DEFAULT
     }
@@ -151,6 +152,7 @@ impl ConstDefault for MxCsr {
 }
 
 impl Default for MxCsr {
+    #[inline]
     fn default() -> Self {
         Self::DEFAULT
     }
