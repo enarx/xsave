@@ -258,35 +258,29 @@ impl ConstDefault for XSave {
 
 impl XSave {
     /// Save the extended CPU state
-    #[inline(never)]
+    #[inline]
     #[cfg(feature = "asm")]
     pub extern "C" fn save(&mut self) {
         unsafe {
             asm!(
-                "mov     eax, ~0",
-                "mov     edx, ~0",
                 "xsave   [{}]",
-
                 in(reg) self,
-                out("eax") _,
-                out("edx") _,
+                in("rax") !0usize,
+                in("rdx") !0usize,
             )
         }
     }
 
     /// Load the extended CPU state
-    #[inline(never)]
+    #[inline]
     #[cfg(feature = "asm")]
     pub extern "C" fn load(&self) {
         unsafe {
             asm!(
-                "mov     eax, ~0",
-                "mov     edx, ~0",
                 "xrstor  [{}]",
-
                 in(reg) self,
-                out("eax") _,
-                out("edx") _,
+                in("rax") !0usize,
+                in("rdx") !0usize,
             )
         }
     }
