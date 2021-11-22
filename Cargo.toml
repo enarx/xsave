@@ -2,7 +2,7 @@
 name = "xsave"
 version = "0.1.1"
 authors = ["Nathaniel McCallum <npmccallum@redhat.com>"]
-edition = "2018"
+edition = "2021"
 license = "Apache-2.0"
 homepage = "https://github.com/enarx/xsave"
 repository = "https://github.com/enarx/xsave"
