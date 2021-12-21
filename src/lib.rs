@@ -24,9 +24,11 @@
 //! xsave.load();
 //! ```
 
-#![cfg_attr(feature = "asm", feature(asm))]
 #![deny(clippy::all)]
 #![no_std]
+
+#[cfg(feature = "asm")]
+use core::arch::asm;
 
 use bitflags::bitflags;
 use const_default::ConstDefault;
