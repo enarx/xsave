@@ -263,6 +263,7 @@ impl XSave {
     #[inline]
     #[cfg(feature = "asm")]
     pub extern "C" fn save(&mut self) {
+        #[cfg(all(feature = "asm", not(doc)))]
         unsafe {
             asm!(
                 "xsave   [{}]",
@@ -277,6 +278,7 @@ impl XSave {
     #[inline]
     #[cfg(feature = "asm")]
     pub extern "C" fn load(&self) {
+        #[cfg(all(feature = "asm", not(doc)))]
         unsafe {
             asm!(
                 "xrstor  [{}]",
